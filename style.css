@@ -1,18 +1,101 @@
 body {
-    background-color: rgb(0,0,0);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1a1a1a;
+    font-family: Comic Sans MS;
 }
 
-#calculated {
-    background-color: rgb(50,50,50);
-    width: 50vw;
-    height: 15vw;
-    border-top-left-radius: 1vw;
-    border-top-right-radius: 1vw;
+#calculator {
+    width: 90vw;
+    max-width: 460px;
+    background: #2d2d2d;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#display {
+    background: #1c1c1c;
+    padding: 25px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 #numbers {
-    font-family: Comic Sans MS;
+    color: #ffffff;
+    font-size: 2.5em;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#buttons {
+    display: grid;
+    gap: 10px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    border: none;
+    padding: 20px;
+    font-size: 1.5em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #4a4a4a;
     color: white;
-    padding-top: 1vw;
-    padding-left: 1vw;
+}
+
+button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.operator {
+    background: #ff9500;
+    font-weight: bold;
+}
+
+.equals {
+    background: #007AFF;
+    grid-column: span 1;
+}
+
+button[onclick*="islem('C')"] {
+    background: #ff3b30;
+}
+
+button[onclick*="islem(0)"] {
+    grid-column: span 2;
+}
+
+@media (max-width: 480px) {
+    #calculator {
+        width: 95vw;
+        padding: 10px;
+    }
+    
+    button {
+        padding: 15px;
+        font-size: 1.2em;
+    }
+    
+    #numbers {
+        font-size: 2em;
+    }
 }
