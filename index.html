@@ -26,5 +26,21 @@
             <button id="x" onclick="islem('x')">x</button>
             <button id="÷" onclick="islem('÷')">÷</button>
         </div>
+        <script>
+            function islem(tus) {
+  const ekran = document.getElementById('numbers');
+  
+  if (tus !== '=') {
+    ekran.textContent += typeof tus === 'number' ? tus.toString() : tus;
+  } else {
+    try {
+      let ifade = ekran.textContent.replace(/x/g, '*').replace(/÷/g, '/');
+      ekran.textContent = eval(ifade);
+    } catch {
+      ekran.textContent = "Hata!";
+    }
+  }
+}
+        </script>
     </body>
 </html>
