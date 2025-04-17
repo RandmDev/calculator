@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(0,0,0);
+}
+
+#calculated {
+    background-color: rgb(50,50,50);
+    width: 50vw;
+    height: 15vw;
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+}
+
+#numbers {
+    font-family: Comic Sans MS;
+    color: white;
+    padding-top: 1vw;
+    padding-left: 1vw;
+}
