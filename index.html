@@ -1,46 +1,69 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>C-AI-LCULATOR</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-        <script src="index.js"></script>
-    </head>
-    
-    <body>
-        <div id="calculated"><div id="numbers"></div></div>
-        <div id="buttons">
-            <button id="1" onclick="islem(1)">1</button>
-            <button id="2" onclick="islem(2)">2</button>
-            <button id="3" onclick="islem(3)">3</button>
-            <button id="4" onclick="islem(4)">4</button>
-            <button id="5" onclick="islem(5)">5</button>
-            <button id="6" onclick="islem(6)">6</button>
-            <button id="7" onclick="islem(7)">7</button>
-            <button id="8" onclick="islem(8)">8</button>
-            <button id="9" onclick="islem(9)">9</button>
-            <button id="0" onclick="islem(0)">0</button>
-            <button id="." onclick="islem('.')">.</button>
-            <button id="=" onclick="islem('=')">=</button>
-            <button id="+" onclick="islem('+')">+</button>
-            <button id="-" onclick="islem('-')">-</button>
-            <button id="x" onclick="islem('x')">x</button>
-            <button id="÷" onclick="islem('÷')">÷</button>
+<head>
+    <title>C-AI-LCULATOR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div id="calculator">
+        <div id="display">
+            <div id="numbers"></div>
         </div>
-        <script>
-            function islem(tus) {
+        <div id="buttons">
+            <div class="row">
+                <button class="operator" onclick="islem('C')">C</button>
+                <button class="operator" onclick="islem('÷')">÷</button>
+                <button class="operator" onclick="islem('x')">×</button>
+                <button class="operator" onclick="islem('-')">−</button>
+            </div>
+            <div class="row">
+                <button onclick="islem(7)">7</button>
+                <button onclick="islem(8)">8</button>
+                <button onclick="islem(9)">9</button>
+                <button class="operator" onclick="islem('+')">+</button>
+            </div>
+            <div class="row">
+                <button onclick="islem(4)">4</button>
+                <button onclick="islem(5)">5</button>
+                <button onclick="islem(6)">6</button>
+                <button class="equals" onclick="islem('=')">=</button>
+            </div>
+            <div class="row">
+                <button onclick="islem(1)">1</button>
+                <button onclick="islem(2)">2</button>
+                <button onclick="islem(3)">3</button>
+                <button onclick="islem(0)">0</button>
+                <button onclick="islem('.')">.</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function islem(tus) {
   const ekran = document.getElementById('numbers');
-  
-  if (tus !== '=') {
+
+  if (ekran.textContent.length < 15) {
+
+  if (tus !== '=' && tus !== 'C') {
     ekran.textContent += typeof tus === 'number' ? tus.toString() : tus;
-  } else {
+  } 
+  else if (tus === 'C') {
+    ekran.textContent = '';
+  } 
+  else {
     try {
       let ifade = ekran.textContent.replace(/x/g, '*').replace(/÷/g, '/');
       ekran.textContent = eval(ifade);
     } catch {
-      ekran.textContent = "Hata!";
+      ekran.textContent = "Error!!!";
+     }
     }
   }
+  else {
+      ekran.textContent = '';
+  }
 }
-        </script>
-    </body>
+    </script>
+</body>
 </html>
